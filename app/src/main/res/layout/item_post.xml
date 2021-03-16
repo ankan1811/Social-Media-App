@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?> //This item_post will be visible in the recycler view.It consists of user's image,user's name,likes and everything present in a post
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -10,14 +10,14 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <ImageView
+        <ImageView           
             android:layout_width="42dp"
             android:layout_height="42dp"
             android:id="@+id/userImage"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <TextView    
             android:id="@+id/userName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
