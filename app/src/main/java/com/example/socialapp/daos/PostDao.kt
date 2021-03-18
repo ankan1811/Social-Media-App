@@ -29,22 +29,23 @@ class PostDao { //similar to the structure of userDao.kt
         }
     }
 
-    fun getPostById(postId: String): Task<DocumentSnapshot> {
+    fun getPostById(postId: String): Task<DocumentSnapshot> { //It will take the id and return the task(document post)
         return postCollections.document(postId).get()
     }
 
-    fun updateLikes(postId: String) {
+    fun updateLikes(postId: String) { //We need the id of the current user and put it in the 
         GlobalScope.launch {
             val currentUserId = auth.currentUser!!.uid
-            val post = getPostById(postId).await().toObject(Post::class.java)!!
-            val isLiked = post.likedBy.contains(currentUserId)
+            val post = getPostById(postId).await().toObject(Post::class.java)!! //Now we need the post whose likedby should be updtaed
+            //Task will be converted to Post object
+            val isLiked = post.likedBy.contains(currentUserId) //We check if the currentid is present in the likedby of the post or not
 
-            if(isLiked) {
+            if(isLiked) { //if the current user has already liked the post then remove it i.e. dislike the post and vice versa
                 post.likedBy.remove(currentUserId)
             } else {
                 post.likedBy.add(currentUserId)
             }
-            postCollections.document(postId).set(post)
+            postCollections.document(postId).set(post) //Then we save the post in the collections
         }
 
     }
