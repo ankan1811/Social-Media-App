@@ -38,7 +38,7 @@ class PostAdapter(options: FirestoreRecyclerOptions<Post>, val listener: IPostAd
     override fun onBindViewHolder(holder: PostViewHolder, position: Int, model: Post) {
         holder.postText.text = model.text
         holder.userText.text = model.createdBy.displayName
-        Glide.with(holder.userImage.context).load(model.createdBy.imageUrl).circleCrop().into(holder.userImage)
+        Glide.with(holder.userImage.context).load(model.createdBy.imageUrl).circleCrop().into(holder.userImage)//circlecrop will crop the image of post creator into a circle
         holder.likeCount.text = model.likedBy.size.toString()
         holder.createdAt.text = Utils.getTimeAgo(model.createdAt)
 
