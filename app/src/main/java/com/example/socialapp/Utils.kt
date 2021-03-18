@@ -1,6 +1,6 @@
 package com.example.socialapp
 
-class Utils {
+class Utils { //if the post is created 1 min ago we will show just now .this is copied from stack overflow
     companion object {
         private const val SECOND_MILLIS = 1000
         private const val MINUTE_MILLIS = 60 * SECOND_MILLIS
