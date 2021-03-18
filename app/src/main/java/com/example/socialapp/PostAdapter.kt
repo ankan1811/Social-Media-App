@@ -29,7 +29,8 @@ class PostAdapter(options: FirestoreRecyclerOptions<Post>, val listener: IPostAd
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val viewHolder =  PostViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent, false))
-        viewHolder.likeButton.setOnClickListener{
+        viewHolder.likeButton.setOnClickListener{ //If like button is clicked
+            //For post id we need Snapshots. Snapshots is present in FireStore recyclerView adapter.
             listener.onLikeClicked(snapshots.getSnapshot(viewHolder.adapterPosition).id)
         }
         return viewHolder
@@ -42,10 +43,10 @@ class PostAdapter(options: FirestoreRecyclerOptions<Post>, val listener: IPostAd
         holder.likeCount.text = model.likedBy.size.toString()
         holder.createdAt.text = Utils.getTimeAgo(model.createdAt)
 
-        val auth = Firebase.auth
+        val auth = Firebase.auth //To get current user
         val currentUserId = auth.currentUser!!.uid
-        val isLiked = model.likedBy.contains(currentUserId)
-        if(isLiked) {
+        val isLiked = model.likedBy.contains(currentUserId)//same logicv
+        if(isLiked) { //This is not handled on click.Firebase will handle it using onBindViewHolder
             holder.likeButton.setImageDrawable(ContextCompat.getDrawable(holder.likeButton.context, R.drawable.ic_liked))
         } else {
             holder.likeButton.setImageDrawable(ContextCompat.getDrawable(holder.likeButton.context, R.drawable.ic_unliked))
@@ -54,6 +55,6 @@ class PostAdapter(options: FirestoreRecyclerOptions<Post>, val listener: IPostAd
     }
 }
 
-interface IPostAdapter {
+interface IPostAdapter { //On clicking the like button ,onLikeClicked function will be called .We need this interface at the top in class PostAdapter as parameter(listener)
     fun onLikeClicked(postId: String)
 }
