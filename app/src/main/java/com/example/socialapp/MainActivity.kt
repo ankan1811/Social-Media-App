@@ -28,19 +28,20 @@ class MainActivity : AppCompatActivity(), IPostAdapter {
         setUpRecyclerView()
     }
 
-    private fun setUpRecyclerView() {
+    private fun setUpRecyclerView() { //This part consists of the logic about how the posts will be shown in the recycler view
+        //So the posts will be sorted in the descending order of created At i.e. the latest created post will come at the top
         postDao = PostDao()
         val postsCollections = postDao.postCollections
-        val query = postsCollections.orderBy("createdAt", Query.Direction.DESCENDING)
-        val recyclerViewOptions = FirestoreRecyclerOptions.Builder<Post>().setQuery(query, Post::class.java).build()
+        val query = postsCollections.orderBy("createdAt", Query.Direction.DESCENDING)//createdAt is a Long
+        val recyclerViewOptions = FirestoreRecyclerOptions.Builder<Post>().setQuery(query, Post::class.java).build()//Used to build the query
 
-        adapter = PostAdapter(recyclerViewOptions, this)
+        adapter = PostAdapter(recyclerViewOptions, this)//Pass the options in PostAdapter.kt
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
-    override fun onStart() {
+    override fun onStart() { //As soon as the app starts adaptere will start listening to any changes in the firebase and firestore database and vice versa
         super.onStart()
         adapter.startListening()
     }
