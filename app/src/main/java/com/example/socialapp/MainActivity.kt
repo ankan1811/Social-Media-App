@@ -52,6 +52,6 @@ class MainActivity : AppCompatActivity(), IPostAdapter {
     }
 
     override fun onLikeClicked(postId: String) {
-        postDao.updateLikes(postId)
+        postDao.updateLikes(postId) //If like is clickd thio=s function will be called
     }
 }
