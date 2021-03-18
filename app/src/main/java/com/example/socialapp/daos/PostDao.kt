@@ -45,7 +45,7 @@ class PostDao { //similar to the structure of userDao.kt
             } else {
                 post.likedBy.add(currentUserId)
             }
-            postCollections.document(postId).set(post) //Then we save the post in the collections
+            postCollections.document(postId).set(post) //Now we have to update that particular post documenty by passing the post id.
         }
 
     }
