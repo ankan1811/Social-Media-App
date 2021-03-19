@@ -14,7 +14,7 @@
 
 ❓ Like the post 
 
-❓ Realtime Updation of Likeds of the post
+❓ Realtime Updation of Likes of the post
 
 # 1. Google Authentication on new user sign up:
 
