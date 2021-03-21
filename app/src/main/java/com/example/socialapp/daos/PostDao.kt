@@ -18,7 +18,7 @@ class PostDao { //similar to the structure of userDao.kt
     val auth = Firebase.auth
 
     fun addPost(text: String) {
-        GlobalScope.launch {//backgroung thread
+        GlobalScope.launch {//backgroung thread (scope of coroutines
             val currentUserId = auth.currentUser!!.uid//
             val userDao = UserDao()
             val user = userDao.getUserById(currentUserId).await().toObject(User::class.java)!! //We get the actual user object from userDao.kt
