@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 class UserDao { //This is how we add data inside firebase
 
-    private val db = FirebaseFirestore.getInstance() //To get the reference of the user database
+    private val db = FirebaseFirestore.getInstance() //To get the reference of the user database i.e. usersCollection
     //Now a bd has multiple collections.We ant the users collection
     private val usersCollection = db.collection("users")
 
