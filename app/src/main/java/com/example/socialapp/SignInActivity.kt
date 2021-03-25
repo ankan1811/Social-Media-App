@@ -68,7 +68,10 @@ class SignInActivity : AppCompatActivity() {
     private fun signIn() {
         //copied from docs
         val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)//signInIntent is for showing that box which contains the list of all email ids.
+        startActivityForResult(signInIntent, RC_SIGN_IN)//signInIntent is the intent for showing that box
+        // which contains the list of all email ids which appears when we click on sign in button.
+        //The advantage of startActivityforresult is that when we come back from the activity we tell our app that we have come back from that activity.
+        //For that we use onActivityResult.
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) { //Copied from docs
@@ -80,13 +83,13 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
-    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
+    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) { //just handles sign in
         try {
             val account =
                 completedTask.getResult(ApiException::class.java)!! //completedTask IS THE TASK WHICH WILL HAVE OUR ACCOUNT through which we have signed in
-                //We will take out the account from there
+                //We will take out the account from there and using account we can get many things like name,id,token,image etc.
             Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
-            firebaseAuthWithGoogle(account.idToken!!)
+            firebaseAuthWithGoogle(account.idToken!!)//we store the token as we will insert in user's database
         } catch (e: ApiException) {
             Log.w(TAG, "signInResult:failed code=" + e.statusCode)
 
