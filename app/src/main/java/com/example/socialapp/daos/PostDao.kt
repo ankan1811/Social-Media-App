@@ -21,7 +21,7 @@ class PostDao { //similar to the structure of userDao.kt
         GlobalScope.launch {//backgroung thread (scope of coroutines
             val currentUserId = auth.currentUser!!.uid//
             val userDao = UserDao()
-            val user = userDao.getUserById(currentUserId).await().toObject(User::class.java)!! //We get the actual user object from userDao.kt
+            val user = userDao.getUserById(currentUserId).await().toObject(User::class.java)!! //We get the actual user task which we convert to user object from userDao.kt
 
             val currentTime = System.currentTimeMillis() //get the time at which pot is created
             val post = Post(text, user, currentTime)//Pass these 3 things to the post for Post.kt
