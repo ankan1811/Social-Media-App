@@ -19,7 +19,7 @@ class CreatePostActivity : AppCompatActivity() {
             val input = postInput.text.toString().trim() //Convert whatever is entered in edittext of post to a string andtrim it
             if(input.isNotEmpty()) {
                 postDao.addPost(input) //If not empty then post it 
-                finish()
+                finish() //As soon as post is created we do finish which ensures that it will come from createPostActivity to mainActivity
             }
         }
 
