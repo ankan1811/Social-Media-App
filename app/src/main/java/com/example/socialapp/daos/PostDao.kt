@@ -29,7 +29,7 @@ class PostDao { //similar to the structure of userDao.kt
         }
     }
 
-    fun getPostById(postId: String): Task<DocumentSnapshot> { //It will take the id and return the task(document post)
+    fun getPostById(postId: String): Task<DocumentSnapshot> { //It will take the id of the post and return the task(document post)
         return postCollections.document(postId).get()
     }
 
