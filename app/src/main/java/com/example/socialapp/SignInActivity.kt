@@ -59,6 +59,7 @@ class SignInActivity : AppCompatActivity() {
         //In Onstart method we check that if user is already signed in .
         //If he is signed in we will take him to main activity else deactivate him.
         super.onStart()
+        //if user is not signed in currentUser will be null
         val currentUser = auth.currentUser //firebase auth class will bring the current user through auth
         updateUI(currentUser)//Pass it to updateUI function created below
     }
