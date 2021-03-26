@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), IPostAdapter {
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
-    override fun onStart() { //As soon as the app starts adaptere will start listening to any changes in the firebase and firestore database and vice versa
+    override fun onStart() { //As soon as the app starts adapter will start listening to any changes in the firebase and firestore database and vice versa
         super.onStart()
         adapter.startListening()
     }
