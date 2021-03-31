@@ -36,7 +36,9 @@
 
 </br>
 
-![](images/image2.png)
+<img align="left" alt="GIF" img height="750" src="images/image2.png" />
+
+<img align="right" alt="GIF" img height="750" src="images/image2.png" />
 
 </br>
 
