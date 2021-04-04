@@ -16,6 +16,13 @@
 
 ❓ Realtime Updation of Likes of the post
 
+
+# This app uses a similar architecture to the [***MVVM (Model View View-Model)***](https://developer.android.com/jetpack/docs/guide#recommended-app-arch) architecture.
+
+
+![](https://github.com/thinktocode/Note-App/blob/master/screenshots/ANDROID%20ROOM%20DB%20DIAGRAM.jpg)
+
+
 # 1. Google Authentication on new user sign up:
 
 </br>
