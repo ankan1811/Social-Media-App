@@ -1,4 +1,4 @@
-# Social-Media-App
+# Social Media App
 
 # This is a social media app which allows users to :- 
 
