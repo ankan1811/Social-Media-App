@@ -16,6 +16,7 @@
 
 ❓ Realtime Updation of Likes of the post
 
+<b>⭐I have added detailed explanation of the entire codebase in the form of comments so that anyone familiar with Kotlin and MVVM can understand.</b>
 
 # This app uses a similar architecture to the [***MVVM (Model View View-Model)***](https://developer.android.com/jetpack/docs/guide#recommended-app-arch) architecture.
 
